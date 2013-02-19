@@ -1,0 +1,82 @@
+<?php
+
+/*
+ * Implement hook_block_info
+ */
+function clcla_custom_block_block_info() {
+  $blocks['social_icons_block'] = array(
+    'info' => t('Social Icons Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  $blocks['donate_nav_block'] = array(
+    'info' => t('Donate Now Sidebar Block '),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  $blocks['goodsearch_block'] = array(
+    'info' => t('Goodsearch Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  return $blocks;
+}
+
+function clcla_custom_block_theme() {
+  return array(
+    'social_icons_block' => array(
+      'variables' => array(
+        'links' => array(),
+      ),
+      'template' => 'clcla_custom_block.social_icons',
+    ),
+    'goodsearch_block' => array(
+      'template' => 'clcla_custom_block.goodsearch',
+    ),
+  );
+}
+
+function clcla_custom_block_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'social_icons_block':
+      drupal_add_css(drupal_get_path('module','clcla_custom_block') . '/clcla_custom_block.css',array('group' => CSS_DEFAULT, 'every_page' => TRUE));
+      $links = array();
+      /* facebook */
+      $image = theme('image_style',array(
+        'style_name' => 'sidebar_icon',
+        'path' => file_build_uri('social') . '/FB_icon.jpg',//file_build_uri(drupal_get_path('theme','basic') . '/images/FB_icon.jpg'),
+        'width' => '',
+        'height' => '',
+        'alt' => 'Facebook',
+        'title' => 'Facebook',
+      ));
+      $links[]= l($image, "http://www.facebook.com/pages/Childrens-Law-Center-of-California/257236084288680", array('html' => TRUE,'attributes'=>array('target'=>'_blank')));
+
+      /* email */
+
+      $image = theme('image_style',array(
+        'style_name' => 'sidebar_icon',
+        'path' => file_build_uri('social') . '/linkedin.jpg',//'/email_icon.jpg', //file_build_uri(drupal_get_path('theme','basic') . '/images/email_icon.jpg'),
+        'width' => '',
+        'height' => '',
+        'alt' => 'Linkedin',
+        'title' => 'Linkedin',
+      ));
+      $links[]= l($image, "http://www.linkedin.com/company/children's-law-center-of-california", array('html' => TRUE,'attributes'=>array('target'=>'_blank')));
+
+      $block['content'] = theme('social_icons_block',array('links'=>$links));
+    break;
+
+    case 'donate_nav_block':
+      $block['content'] = l('Donate Now','donate-now',array('attributes'=>array('class'=>array('donate_link'))));
+    break;
+
+    case 'goodsearch_block':
+      $block['content'] = theme('goodsearch_block');
+    break;
+  }
+
+  return $block;
+}

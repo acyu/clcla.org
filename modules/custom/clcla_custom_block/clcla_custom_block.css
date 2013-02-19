@@ -1,0 +1,9 @@
+#block-clcla_custom_block-social_icons_block { position: absolute !important; bottom: 0; width: 100%; }
+#block-clcla_custom_block-social_icons_block .social { position: relative; clear:both; width:70px; margin: 0 auto; }
+#block-clcla_custom_block-social_icons_block .social ul { padding:0; list-style-type: none !important; }
+#block-clcla_custom_block-social_icons_block .social li { float: left; background: #fff; margin-bottom: 5px; padding: 5px 5px 0 5px; }
+
+#block-clcla_custom_block-donate_nav_block { position: absolute; bottom: 60px; width: 100%; background: url(./assets/donate_now_bg.jpg) repeat-x; height: 52px; line-height: 52px; text-align: center; }
+#block-clcla_custom_block-donate_nav_block a { color: #762f75; font-size: 1.2em; font-weight: bold; }
+
+#block-clcla_custom_block-goodsearch_block { position: absolute; right: 0; bottom: 10px; }

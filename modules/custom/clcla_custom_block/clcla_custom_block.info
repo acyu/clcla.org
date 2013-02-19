@@ -1,0 +1,4 @@
+name = CLCLA Custom Block
+description = Provide clcla custom blocks
+core = 7.x
+package = CLCLA

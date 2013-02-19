@@ -1,0 +1,23 @@
+<?php
+
+function clc_news_node_view_alter(&$build) {
+  if(in_array($build['#node']->type,array('article','newsletter','press_release','event'))) {
+    switch ($build['#node']->type) {
+      case 'article':
+        drupal_set_title('Articles');
+        break;
+
+      case 'newsletter':
+        drupal_set_title('Newsletters');
+        break;
+
+      case 'press_release':
+        drupal_set_title('Press Releases');
+        break;
+
+      case 'event':
+        drupal_set_title('Events');
+        break;
+    }
+  }
+}

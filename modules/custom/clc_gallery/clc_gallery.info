@@ -1,0 +1,4 @@
+name = CLC Gallery
+description = Photo gallery customization
+core = 7.x
+package = CLCLA

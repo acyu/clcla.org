@@ -1,0 +1,39 @@
+<?php
+
+function clc_gallery_menu() {
+  $items = array();
+
+  $items['js/clc_gallery.js'] = array(
+    'page callback' => 'clc_gallery_customize',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function clc_gallery_customize() {
+  // Suppress admin menu.
+  module_invoke('admin_menu', 'suppress');
+  drupal_add_http_header('Content-Type', 'application/javascript');
+
+  echo theme('clc_gallery_js');
+  exit();
+}
+
+function clc_gallery_node_view($node, $view_mode, $langcode) {
+  if($node->type == 'gallery') {
+    drupal_add_js('js/clc_gallery.js');
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function clc_gallery_theme() {
+  return array(
+    'clc_gallery_js' => array(
+      'template' => 'clc_gallery.js',
+    ),
+  );
+}

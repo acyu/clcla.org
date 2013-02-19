@@ -1,0 +1,4 @@
+name = Featured Carousel
+description = Provide CLCLA image carousel block
+core = 7.x
+package = CLCLA

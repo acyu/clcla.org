@@ -1,0 +1,4 @@
+name = CLC News
+description = News article, newsletter and press release customization
+core = 7.x
+package = CLCLA
