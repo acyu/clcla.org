@@ -115,3 +115,5 @@ html { background: #753175 url(../images/html-bg.jpg) repeat-x;}
 /* node */
 #content-area .title { font-size: 18px; font-weight: bold; color: #752f75; padding-top: 0px; padding-bottom: 5px; }
 .date-display-single { font-weight: bold; }
+.img-template.float-right { float: right; }
+.img-template.float-left { float: left; }
