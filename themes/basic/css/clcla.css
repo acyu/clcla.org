@@ -96,7 +96,7 @@ html { background: #753175 url(../images/html-bg.jpg) repeat-x;}
   border: 1px solid #000;
 }
 .view-news .title { color: #e08410; font-size: 14px; padding: 0; }
-.view-news .text { position: relative; margin-left: 135px; }
+.view-news .text { position: relative; margin-left: 135px; min-height: 50px; }
 .view-news .text p { position: relative; }
 /*.view-display-id-happening .text a { color: #e08410; } */
 #content-area a { color: #e08410; }
